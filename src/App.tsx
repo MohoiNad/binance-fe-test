@@ -1,12 +1,14 @@
-import React from 'react';
+import  React, {useEffect} from 'react';
+import {useWsConnection} from './hooks/useWsConnection'
 
-type InitialTestProps = {
-  success: Boolean
-}
-
-export const App:React.FC<InitialTestProps> = () => {
+export const App:React.FC = () => {
+    useWsConnection()
   return (
-    <div data-test='app-component' className="App"/>
+    <div data-test='app-component'>
+      Market
+      <hr/>
+
+    </div>
   );
 }
 
