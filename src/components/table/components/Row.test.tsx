@@ -1,10 +1,8 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import { shallow, ShallowWrapper } from "enzyme";
+import React from 'react'
+import { shallow, ShallowWrapper } from 'enzyme'
 
-import {Row} from './Row';
-import {findByTestAttr} from '../../../testUtils'
-
+import { Row } from './Row'
+import { findByTestAttr } from '../../../testUtils'
 
 /***
  * Factory function which return a ShallowWrapper for the Congrats component.
@@ -15,42 +13,36 @@ import {findByTestAttr} from '../../../testUtils'
 const defaultProps = {
     price: 0,
     pair: '',
-    change: 0
+    change: 0,
 }
 
-const setup = (props={}) => {
-    const setupProps = {...defaultProps, ...props}
-    return shallow(<Row {...setupProps}/>)
-};
+const setup = (props = {}) => {
+    const setupProps = { ...defaultProps, ...props }
+    return shallow(<Row {...setupProps} />)
+}
 
-describe('renders correctly', ()=> {
-    let wrapper:ShallowWrapper;
-    beforeEach(()=> {
-        wrapper = setup({guessedWords: []})
+describe('renders correctly', () => {
+    let wrapper: ShallowWrapper
+    beforeEach(() => {
+        wrapper = setup({ guessedWords: [] })
     })
-    test("render without error", () => {
-
-        const component = findByTestAttr(wrapper,'row-component' );
+    test('render without error', () => {
+        const component = findByTestAttr(wrapper, 'row-component')
         expect(component.length).toBe(1)
-    });
+    })
 
-    test("have pair name cell", () => {
-
-        const component = findByTestAttr(wrapper,'row-pair' );
+    test('have pair name cell', () => {
+        const component = findByTestAttr(wrapper, 'row-pair')
         expect(component.length).toBe(1)
-    });
+    })
 
-    test("have price cell", () => {
-
-        const component = findByTestAttr(wrapper,'row-last-price' );
+    test('have price cell', () => {
+        const component = findByTestAttr(wrapper, 'row-last-price')
         expect(component.length).toBe(1)
-    });
+    })
 
-    test("have changed cell", () => {
-
-        const component = findByTestAttr(wrapper,'row-change' );
+    test('have changed cell', () => {
+        const component = findByTestAttr(wrapper, 'row-change')
         expect(component.length).toBe(1)
-    });
-
-
+    })
 })

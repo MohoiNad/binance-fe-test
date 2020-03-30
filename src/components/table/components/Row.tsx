@@ -1,19 +1,19 @@
 import React from 'react'
 
 type DefaultProps = {
-    pair: string,
-    price: number,
-    change: number,
+    pair: string
+    price: number
+    change: number
 }
 
-export const Row:React.FC<DefaultProps> = (props) => {
-    const {pair, price, change} = props;
+export const Row: React.FC<DefaultProps> = props => {
+    const { pair, price, change } = props
     return (
-        <div  data-test="row-component" >
-            <p data-test="row-pair">{pair}</p>
-            <p data-test="row-last-price">{price}</p>
-            <p data-test="row-change">{change}</p>
-        </div>
+        <tr data-test="row-component">
+            <td data-test="row-pair">{pair}</td>
+            <td data-test="row-last-price">{price}</td>
+            <td data-test="row-change">{change}</td>
+        </tr>
     )
 }
 
